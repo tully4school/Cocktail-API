@@ -1,0 +1,143 @@
+swagger: "2.0"
+info:
+  description: This is a cocktail recipe API
+  version: 1.0.0;
+  title: Cocktail Recipe API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+  - name: Drinks
+    description: A full library of drinks
+  - name: Names
+    description: Search by drink names
+  - name: Glass
+    description: Search by the type of glass a drink is served in
+  - name: Alcohol
+    description: Search by wether or not the drink contains alcohol
+  - name: Category
+    description: Search by the category of drink 
+paths:
+  /drinks:
+    get:
+      tags:
+        - Drinks
+      summary: searches all available drink
+      operationId: searchDrinks
+      description: |
+        By passing in the appropriate options, you can search for cocktail recipes
+        available in the system
+      produces:
+        - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/Drink"
+        400:
+          description: bad input parameter
+  /name:
+    get:
+      tags:
+        - Names
+      summary: searches for a cocktail by name
+      operationId: searchDrinkName
+      description: |
+        By passing in the appropriate options, you can search for cocktail recipes
+        by name that are available in the system
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: drinkName
+          description: Name to find
+          schema:
+            $ref: "#/definitions/Drink"
+      responses:
+        200:
+          description: search results matching criteria
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/Drink"
+        400:
+          description: bad input parameter  
+    post:
+      tags:
+        - admins
+      summary: adds a drink
+      operationId: addDrink
+      description: Adds a drink to the collection
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: drinkName
+          description: Drink to add
+          schema:
+            $ref: "#/definitions/Drink"
+      responses:
+        201:
+          description: drink added
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing drink already exists
+          # this is where i would add another path
+definitions:
+  Drink:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 5dcc73d295f4826a8e00f418
+      drinkNumber:
+        type: integer
+        example: 0
+      drinkName:
+        type: string
+        example: 110 in the shade
+      alcohol:
+        type: string
+        example: true
+      drinkCategory:
+        type: string
+        example: Cocktail
+      drinkThumb:
+        type: string
+        example: http://www.thecocktaildb.com/images/media/drink/bje5401485619578.jpg
+      drinkGlass:
+        type: string
+        example: Highball glass
+      drinkIngredients:
+        type: array
+        items:
+          type: string
+      drinkMeasures:
+        type: array
+        items:
+          type: string
+      drinkInstructions:
+        type: string
+        example: Shake Rum, Amaretto, and Orange Juice in a shaker filled with ice. Strain over ice into a highball glass. Add Grenadine and garnish with a Pineapple Wedge and a Strawberry.
+      manufacturer:
+        $ref: "#/definitions/Drink"
+  # Name:
+  # type: string
+  # properties:
+  #   drinkName: 
+  #     type: string
+  #     example: 110 in the shade
+  #   manufacturer:
+  #     $ref: "#/definitions/Name"
+# Added by API Auto Mocking Plugin
+host: localhost:3000
+basePath: /
+schemes:
+  - http
