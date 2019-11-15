@@ -3,10 +3,13 @@ const app = express();
 const parser = require("body-parser");
 const cors = require("cors");
 
+app.use(parser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(parser.json());
-
 app.use(require("./lib/routes/index"));
+app.get("/", (req, res) => {
+	res.redirect("/drinks");
+});
 app.post("/drinks/", function(req, res) {
 	Mixer.create(req.body).then(drink => {
 		res.json(drink);
