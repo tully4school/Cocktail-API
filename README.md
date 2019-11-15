@@ -27,13 +27,13 @@ This is an API made for cocktail recipies. It was coded using ExpressJS, MongoDB
 
 
 ## Credit
-[Kaggle Cocktail Ingredients](https://www.kaggle.com/ai-first/cocktail-ingredients/data)
-[Swagger API Documentation](https://swagger.io)
-Zakk F
-Erin K
-Paula B
-Karen H
-Lorenzo L
+* [Kaggle Cocktail Ingredients](https://www.kaggle.com/ai-first/cocktail-ingredients/data)
+* [Swagger API Documentation](https://swagger.io)
+* Zakk F
+* Erin K
+* Paula B
+* Karen H
+* Lorenzo L
 
 
 ## Author
