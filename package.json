@@ -1,26 +1,27 @@
 {
-  "name": "drinkmixer",
-  "version": "1.0.0",
-  "description": "An API for mixed drinks",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tully4school/drinkmixer.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tully4school/drinkmixer/issues"
-  },
-  "homepage": "https://github.com/tully4school/drinkmixer#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.7.10",
-    "swagger-ui": "^3.24.2"
-  }
+	"name": "drinkmixer",
+	"version": "1.0.0",
+	"description": "An API for mixed drinks",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tully4school/drinkmixer.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/tully4school/drinkmixer/issues"
+	},
+	"homepage": "https://github.com/tully4school/drinkmixer#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"mongoose": "^5.7.10",
+		"swagger-ui": "^3.24.2"
+	}
 }

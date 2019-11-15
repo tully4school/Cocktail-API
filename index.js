@@ -24,4 +24,8 @@ app.delete("/drinks/:id", function(req, res) {
 		res.json(drink);
 	});
 });
-app.listen(3000, () => console.log("listening for mixers on port 3000"));
+app.set("port", process.env.PORT || 8080);
+
+app.listen(app.get("port"), () => {
+	console.log(`✅ PORT: ${app.get("port")} 🌟`);
+});
