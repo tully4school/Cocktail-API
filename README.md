@@ -4,10 +4,10 @@
 This is an API made for cocktail recipies. It was coded using ExpressJS, MongoDB and YAML for documentation. The Database is hosted on Heroku.
 
 ## Screenshots
-[contact information](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img1.png)
-[screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img2.png)
-[screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img3.png)
-[screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img4.png)
+![contact information](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img1.png)
+![screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img2.png)
+![screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img3.png)
+![screenshot](https://raw.githubusercontent.com/tully4school/drinkmixer/master/img/img4.png)
 
 ## Languages Used
 
