@@ -137,7 +137,7 @@ definitions:
   #   manufacturer:
   #     $ref: "#/definitions/Name"
 # Added by API Auto Mocking Plugin
-host: localhost:3000
+host: cocktail-recipes-tully4school.herokuapp.com
 basePath: /
 schemes:
-  - http
+  - https
