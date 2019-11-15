@@ -11,16 +11,16 @@ This is an API made for cocktail recipies. It was coded using ExpressJS, MongoDB
 
 ## Languages Used
 
-    * Javascript/ExpressJS
-    * MongoDB/Mongoose
-    * YAML
+* Javascript/ExpressJS
+* MongoDB/Mongoose
+* YAML
 
 ## Hosting Services
     
-    * Heroku
-    * Atlas
-    * GH
-    * Swagger
+* Heroku
+* Atlas
+* GH
+* Swagger
 
 ## Documentation
 [Cocktail Recipe API Documentaiton](https://app.swaggerhub.com/apis-docs/tully4school4/cocktailrecipeapidoc/v2)
