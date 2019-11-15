@@ -3,12 +3,17 @@ info:
   description: This is a cocktail recipe API
   version: 1.0.0;
   title: Cocktail Recipe API
+  contact:
+    name: Joseph Tully
+    email: tully4school@gmail.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 
 # tags are used for organizing operations
 tags:
+  - name: ADMIN
+    description: Administrative access ONLY
   - name: Drinks
     description: A full library of drinks
   - name: Names
@@ -24,7 +29,7 @@ paths:
     get:
       tags:
         - Drinks
-      summary: searches all available drink
+      summary: searches all available cocktails
       operationId: searchDrinks
       description: |
         By passing in the appropriate options, you can search for cocktail recipes
@@ -33,45 +38,19 @@ paths:
         - application/json
       responses:
         200:
-          description: search results matching criteria
+          description: Drinks Served!
           schema: 
             type: array
             items:
               $ref: "#/definitions/Drink"
         400:
-          description: bad input parameter
-  /name:
-    get:
-      tags:
-        - Names
-      summary: searches for a cocktail by name
-      operationId: searchDrinkName
-      description: |
-        By passing in the appropriate options, you can search for cocktail recipes
-        by name that are available in the system
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: drinkName
-          description: Name to find
-          schema:
-            $ref: "#/definitions/Drink"
-      responses:
-        200:
-          description: search results matching criteria
-          schema: 
-            type: array
-            items:
-              $ref: "#/definitions/Drink"
-        400:
-          description: bad input parameter  
+          description: Unable to process
     post:
       tags:
-        - admins
+        - Drinks
       summary: adds a drink
       operationId: addDrink
-      description: Adds a drink to the collection
+      description: Adds a cocktail to the collection
       consumes:
         - application/json
       produces:
@@ -79,17 +58,212 @@ paths:
       parameters:
         - in: body
           name: drinkName
-          description: Drink to add
+          description: Cocktail to add
           schema:
             $ref: "#/definitions/Drink"
       responses:
         201:
-          description: drink added
+          description: Cocktail added
         400:
           description: invalid input, object invalid
         409:
           description: an existing drink already exists
+  /drinks/{id}:
+    put:
+      tags:
+        - ADMIN
+        - Drinks
+      summary: Edit a cocktail
+      operationId: edit
+      description: Edit a cocktail in the collection
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: ID to fetch
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Values to change
+          required: true
+          schema:
+              $ref: "#/definitions/Drink"
+      responses:
+        200:
+          description: Cocktail Updated
+        400:
+          description: invalid ID
+        409:
+          description: Unable to mix your drink
+    delete:
+      tags:
+        - ADMIN
+        - Drinks
+      summary: Delete a cocktail
+      operationId: delete
+      description: Delete a cocktail from the collection
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: ID to delete
+          required: true
+          type: string
+      responses:
+        200:
+          description: Cocktail DELETED
+        400:
+          description: invalid ID
+        409:
+          description: Unable to mix your drink
           # this is where i would add another path
+  /{drinkName}:
+    get:
+      tags:
+        - Drinks
+        - Names
+      summary: Look up drinks by name
+      operationId: showName
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: drinkName
+          description: Name of drink to pull
+          required: true
+          type: string
+      responses:
+        200:
+          description: Cocktail Served!
+          schema:
+            $ref: "#/definitions/Drink"
+        405:
+          description: Invalid cocktail || Not in the system
+  /drinks/has-alcohol/{alcohol}:
+    get:
+      tags:
+        - Drinks
+        - Alcohol
+      summary: All cocktails with or without alcohol
+      operationId: showAlcohol
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: alcohol
+          description: All cocktails with or without alcohol
+          required: true
+          type: string
+          enum:
+              - "true"
+              - "false"
+      responses:
+        200:
+          description: Drinks Served!
+          schema:
+            $ref: "#/definitions/Drink"
+        405:
+          description: No drinks of that type available
+  /drinks/category/{drinkCategory}:
+    get:
+      tags:
+        - Drinks
+        - Category
+      summary: Show cocktails of a specific Category
+      operationId: showCategory
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: drinkCategory
+          description: Cocktails by category
+          required: true
+          type: string
+          enum:
+              - "Beer"
+              - "Cocktail"
+              - "Cocoa"
+              - "Homemade Liqueur"
+              - "Milk / Float / Shake"
+              - "Ordinary Drink"
+              - "Other/Unknown"
+              - "Punch / Party Drink"
+              - "Shot"
+              - "Soft Drink / Soda"
+              - "Coffee / Tea"
+      responses:
+        200:
+          description: Cocktails Served!
+          schema:
+            $ref: "#/definitions/Drink"
+        405:
+          description: No cocktails of that type available
+  /drinks/glass/{drinkGlass}:
+    get:
+      tags:
+        - Drinks
+        - Glass
+      summary: All cocktails served in a certain glass
+      operationId: showGlass
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: drinkGlass
+          description: Cocktails by glass
+          required: true
+          type: string
+          enum:
+              - "Beer mug"
+              - "Beer Glass"
+              - "Beer pilsner"
+              - "Brandy snifter"
+              - "Champagne flute"
+              - "Coffee Mug"
+              - "Cocktail glass"
+              - "Collins glass"
+              - "Copper Mug"
+              - "Cordial glass"
+              - "Highball glass"
+              - "Hurricane glass"
+              - "Irish coffee cup"
+              - "Jar"
+              - "Martini Glass"
+              - "Margarita/Coupette glass"
+              - "Margarita glass"
+              - "Mason jar"
+              - "Old-fashioned glass"
+              - "Parfait glass"
+              - "Pint glass"
+              - "Pitcher"
+              - "Pousse cafe glass"
+              - "Punch Bowl"
+              - "Wine Glass"
+              - "White wine glass"
+              - "Whiskey sour glass"
+              - "Shot Glass"
+      responses:
+        200:
+          description: Cocktails Served!
+          schema:
+            $ref: "#/definitions/Drink"
+        405:
+          description: Our bartender does not know how to make that at the moment
 definitions:
   Drink:
     type: object
@@ -105,16 +279,61 @@ definitions:
         example: 110 in the shade
       alcohol:
         type: string
-        example: true
+        description: whether or not the cocktail has alcohol
+        enum:
+        - "true"
+        - "false"
       drinkCategory:
         type: string
+        description: "Type of drink (shot, beer, etc..)"
         example: Cocktail
+        enum:
+        - "Beer"
+        - "Cocktail"
+        - "Cocoa"
+        - "Homemade Liqueur"
+        - "Milk / Float / Shake"
+        - "Ordinary Drink"
+        - "Other/Unknown"
+        - "Punch / Party Drink"
+        - "Shot"
+        - "Soft Drink / Soda"
+        - "Coffee / Tea"
       drinkThumb:
         type: string
         example: http://www.thecocktaildb.com/images/media/drink/bje5401485619578.jpg
       drinkGlass:
         type: string
         example: Highball glass
+        enum:
+        - "Beer mug"
+        - "Beer Glass"
+        - "Beer pilsner"
+        - "Brandy snifter"
+        - "Champagne flute"
+        - "Coffee Mug"
+        - "Cocktail glass"
+        - "Collins glass"
+        - "Copper Mug"
+        - "Cordial glass"
+        - "Highball glass"
+        - "Hurricane glass"
+        - "Irish coffee cup"
+        - "Jar"
+        - "Martini Glass"
+        - "Margarita/Coupette glass"
+        - "Margarita glass"
+        - "Mason jar"
+        - "Old-fashioned glass"
+        - "Parfait glass"
+        - "Pint glass"
+        - "Pitcher"
+        - "Pousse cafe glass"
+        - "Punch Bowl"
+        - "Wine Glass"
+        - "White wine glass"
+        - "Whiskey sour glass"
+        - "Shot Glass"
       drinkIngredients:
         type: array
         items:
@@ -126,16 +345,6 @@ definitions:
       drinkInstructions:
         type: string
         example: Shake Rum, Amaretto, and Orange Juice in a shaker filled with ice. Strain over ice into a highball glass. Add Grenadine and garnish with a Pineapple Wedge and a Strawberry.
-      manufacturer:
-        $ref: "#/definitions/Drink"
-  # Name:
-  # type: string
-  # properties:
-  #   drinkName: 
-  #     type: string
-  #     example: 110 in the shade
-  #   manufacturer:
-  #     $ref: "#/definitions/Name"
 # Added by API Auto Mocking Plugin
 host: cocktail-recipes-tully4school.herokuapp.com
 basePath: /
