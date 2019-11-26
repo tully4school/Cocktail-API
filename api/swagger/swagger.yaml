@@ -23,7 +23,7 @@ tags:
   - name: Alcohol
     description: Search by wether or not the drink contains alcohol
   - name: Category
-    description: Search by the category of drink 
+    description: Search by the category of drink
 paths:
   /drinks:
     get:
@@ -39,7 +39,7 @@ paths:
       responses:
         200:
           description: Drinks Served!
-          schema: 
+          schema:
             type: array
             items:
               $ref: "#/definitions/Drink"
@@ -91,7 +91,7 @@ paths:
           description: Values to change
           required: true
           schema:
-              $ref: "#/definitions/Drink"
+            $ref: "#/definitions/Drink"
       responses:
         200:
           description: Cocktail Updated
@@ -166,8 +166,8 @@ paths:
           required: true
           type: string
           enum:
-              - "true"
-              - "false"
+            - "true"
+            - "false"
       responses:
         200:
           description: Drinks Served!
@@ -193,17 +193,17 @@ paths:
           required: true
           type: string
           enum:
-              - "Beer"
-              - "Cocktail"
-              - "Cocoa"
-              - "Homemade Liqueur"
-              - "Milk / Float / Shake"
-              - "Ordinary Drink"
-              - "Other/Unknown"
-              - "Punch / Party Drink"
-              - "Shot"
-              - "Soft Drink / Soda"
-              - "Coffee / Tea"
+            - "Beer"
+            - "Cocktail"
+            - "Cocoa"
+            - "Homemade Liqueur"
+            - "Milk / Float / Shake"
+            - "Ordinary Drink"
+            - "Other/Unknown"
+            - "Punch / Party Drink"
+            - "Shot"
+            - "Soft Drink / Soda"
+            - "Coffee / Tea"
       responses:
         200:
           description: Cocktails Served!
@@ -229,34 +229,34 @@ paths:
           required: true
           type: string
           enum:
-              - "Beer mug"
-              - "Beer Glass"
-              - "Beer pilsner"
-              - "Brandy snifter"
-              - "Champagne flute"
-              - "Coffee Mug"
-              - "Cocktail glass"
-              - "Collins glass"
-              - "Copper Mug"
-              - "Cordial glass"
-              - "Highball glass"
-              - "Hurricane glass"
-              - "Irish coffee cup"
-              - "Jar"
-              - "Martini Glass"
-              - "Margarita/Coupette glass"
-              - "Margarita glass"
-              - "Mason jar"
-              - "Old-fashioned glass"
-              - "Parfait glass"
-              - "Pint glass"
-              - "Pitcher"
-              - "Pousse cafe glass"
-              - "Punch Bowl"
-              - "Wine Glass"
-              - "White wine glass"
-              - "Whiskey sour glass"
-              - "Shot Glass"
+            - "Beer mug"
+            - "Beer Glass"
+            - "Beer pilsner"
+            - "Brandy snifter"
+            - "Champagne flute"
+            - "Coffee Mug"
+            - "Cocktail glass"
+            - "Collins glass"
+            - "Copper Mug"
+            - "Cordial glass"
+            - "Highball glass"
+            - "Hurricane glass"
+            - "Irish coffee cup"
+            - "Jar"
+            - "Martini Glass"
+            - "Margarita/Coupette glass"
+            - "Margarita glass"
+            - "Mason jar"
+            - "Old-fashioned glass"
+            - "Parfait glass"
+            - "Pint glass"
+            - "Pitcher"
+            - "Pousse cafe glass"
+            - "Punch Bowl"
+            - "Wine Glass"
+            - "White wine glass"
+            - "Whiskey sour glass"
+            - "Shot Glass"
       responses:
         200:
           description: Cocktails Served!
@@ -281,24 +281,24 @@ definitions:
         type: string
         description: whether or not the cocktail has alcohol
         enum:
-        - "true"
-        - "false"
+          - "true"
+          - "false"
       drinkCategory:
         type: string
         description: "Type of drink (shot, beer, etc..)"
         example: Cocktail
         enum:
-        - "Beer"
-        - "Cocktail"
-        - "Cocoa"
-        - "Homemade Liqueur"
-        - "Milk / Float / Shake"
-        - "Ordinary Drink"
-        - "Other/Unknown"
-        - "Punch / Party Drink"
-        - "Shot"
-        - "Soft Drink / Soda"
-        - "Coffee / Tea"
+          - "Beer"
+          - "Cocktail"
+          - "Cocoa"
+          - "Homemade Liqueur"
+          - "Milk / Float / Shake"
+          - "Ordinary Drink"
+          - "Other/Unknown"
+          - "Punch / Party Drink"
+          - "Shot"
+          - "Soft Drink / Soda"
+          - "Coffee / Tea"
       drinkThumb:
         type: string
         example: http://www.thecocktaildb.com/images/media/drink/bje5401485619578.jpg
@@ -306,34 +306,34 @@ definitions:
         type: string
         example: Highball glass
         enum:
-        - "Beer mug"
-        - "Beer Glass"
-        - "Beer pilsner"
-        - "Brandy snifter"
-        - "Champagne flute"
-        - "Coffee Mug"
-        - "Cocktail glass"
-        - "Collins glass"
-        - "Copper Mug"
-        - "Cordial glass"
-        - "Highball glass"
-        - "Hurricane glass"
-        - "Irish coffee cup"
-        - "Jar"
-        - "Martini Glass"
-        - "Margarita/Coupette glass"
-        - "Margarita glass"
-        - "Mason jar"
-        - "Old-fashioned glass"
-        - "Parfait glass"
-        - "Pint glass"
-        - "Pitcher"
-        - "Pousse cafe glass"
-        - "Punch Bowl"
-        - "Wine Glass"
-        - "White wine glass"
-        - "Whiskey sour glass"
-        - "Shot Glass"
+          - "Beer mug"
+          - "Beer Glass"
+          - "Beer pilsner"
+          - "Brandy snifter"
+          - "Champagne flute"
+          - "Coffee Mug"
+          - "Cocktail glass"
+          - "Collins glass"
+          - "Copper Mug"
+          - "Cordial glass"
+          - "Highball glass"
+          - "Hurricane glass"
+          - "Irish coffee cup"
+          - "Jar"
+          - "Martini Glass"
+          - "Margarita/Coupette glass"
+          - "Margarita glass"
+          - "Mason jar"
+          - "Old-fashioned glass"
+          - "Parfait glass"
+          - "Pint glass"
+          - "Pitcher"
+          - "Pousse cafe glass"
+          - "Punch Bowl"
+          - "Wine Glass"
+          - "White wine glass"
+          - "Whiskey sour glass"
+          - "Shot Glass"
       drinkIngredients:
         type: array
         items:
@@ -346,7 +346,7 @@ definitions:
         type: string
         example: Shake Rum, Amaretto, and Orange Juice in a shaker filled with ice. Strain over ice into a highball glass. Add Grenadine and garnish with a Pineapple Wedge and a Strawberry.
 # Added by API Auto Mocking Plugin
-host: cocktail-recipes-tully4school.herokuapp.com
+host: cocktail-recipes-tully4school.herokuapp.com/drinks
 basePath: /
 schemes:
   - https
