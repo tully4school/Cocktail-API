@@ -346,7 +346,7 @@ definitions:
         type: string
         example: Shake Rum, Amaretto, and Orange Juice in a shaker filled with ice. Strain over ice into a highball glass. Add Grenadine and garnish with a Pineapple Wedge and a Strawberry.
 # Added by API Auto Mocking Plugin
-host: cocktail-recipes-tully4school.herokuapp.com/drinks
+host: cocktail-recipes-tully4school.herokuapp.com
 basePath: /
 schemes:
   - https
